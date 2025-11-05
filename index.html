@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Tracker Blue Theme</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body class="light">
+  <div class="bg-print"></div>
+  <div class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</div>
+  <div class="main-container">
+    <h1>Expense Tracker</h1>
+    
+    <div id="budget-alert"></div>
+    <div class="summary-box">
+      <h2>💰 Total Expense Summary</h2>
+      <div id="total-summary"></div>
+      <input type="number" id="budget" placeholder="Set monthly budget (₹)">
+      <button onclick="setBudget()">Set Budget</button>
+    </div>
+    
+    <form id="expense-form">
+      <label>Category: 
+        <select id="category">
+          <option value="Food">Food</option>
+          <option value="College Fee">College Fee</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+      </label>
+      <label>Amount: <input type="number" id="amount" required /></label>
+      <label>Date: <input type="date" id="date" required /></label>
+      <label>Where: <input type="text" id="place" required /></label>
+      <button type="submit">Add</button>
+    </form>
+    
+    <div id="filter-row">
+      <input id="search" type="text" placeholder="Search by keyword" oninput="renderExpenses()">
+      <select id="filter-category" onchange="renderExpenses()">
+        <option value="">Show All Categories</option>
+        <option value="Food">Food</option>
+        <option value="College Fee">College Fee</option>
+        <option value="Travel">Travel</option>
+        <option value="Shopping">Shopping</option>
+      </select>
+      <input id="filter-date" type="month" onchange="renderExpenses()">
+      <button type="button" onclick="exportPDF()">Export PDF</button>
+    </div>
+
+    <div id="chart-box">
+      <canvas id="category-chart" width="200" height="200"></canvas>
+    </div>
+    <h2>Expenses List</h2>
+    <div id="expenses-list"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

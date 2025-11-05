@@ -1,0 +1,129 @@
+body.light {
+  background: linear-gradient(120deg, #b0e0ff 0%, #d6f0ff 100%);
+  color: #155797;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle waves/circle print for blue background */
+.bg-print {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><path d='M0,30 Q50,60 100,30 T200,30 T300,30 T400,30' stroke='%23ffffff' stroke-width='6' fill='none' opacity='0.22'/><circle cx='85' cy='85' r='34' fill='%2389c6ef' opacity='0.18'/></svg>");
+  background-repeat: repeat-x;
+}
+
+/* Main container should come above background */
+.main-container {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px 30px;
+  border-radius: 18px;
+  box-shadow: 0 2px 20px rgba(52, 73, 94, 0.10);
+}
+body.dark .main-container {
+  background: #204064;
+  box-shadow: 0 2px 20px #111;
+}
+h1, h2 {
+  text-align: center;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+.summary-box {
+  background: linear-gradient(90deg, #e0f9ff 0%, #b9daff 100%);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(22, 60, 160, 0.13);
+}
+form, #filter-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+label { font-weight: bold; color: #206fb8; }
+input, select, button {
+  font-size: 1rem;
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid #b0cdf0;
+  background: #f2f8fc;
+}
+body.dark input, body.dark select, body.dark button {
+  background: #d6e6fa;
+  color: #2a476e;
+  border: 1px solid #70a48e;
+}
+input:focus, select:focus { outline: 2px solid #82bde2; }
+button {
+  background: linear-gradient(90deg,#89c6ef 60%,#61baff 100%);
+  color: #155797;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover { background: linear-gradient(90deg,#61baff,#b0e0ff); }
+#chart-box { margin: 10px 0 10px 0; text-align: center; }
+#expenses-list { margin-top: 12px; }
+.expense-card {
+  background: linear-gradient(90deg, #e5f2ff 0%, #bde4ff 100%);
+  border-radius: 9px;
+  padding: 8px 14px;
+  margin-bottom: 7px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid #61baff;
+  box-shadow: 0 2px 4px rgba(81, 125, 162, 0.07);
+}
+.expense-info { flex: 1; }
+.expense-card .place { color: #3c56d6; }
+.expense-card .date { color: #206fb8; opacity: 0.8; font-size: 0.92rem; }
+.expense-card .actions button {
+  margin-left: 4px;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #b0cdf0;
+  color: #206fb8;
+  font-size: 1.1rem;
+  padding: 4px 10px;
+}
+.expense-card .actions button.edit { background: #e9faff; }
+.expense-card .actions button.delete { background: #ffdede; color: #921b2a; }
+.theme-toggle {
+  position: fixed;
+  top: 14px; right: 14px;
+  cursor: pointer;
+  font-size: 1.9rem;
+  z-index: 999;
+  background: #e0f9ff;
+  padding: 8px 15px;
+  border-radius: 50px;
+  box-shadow: 0 2px 12px #89d68b;
+  transition: background 0.3s;
+}
+body.dark .theme-toggle {
+  background: #1b2f40; color: #fff;
+  box-shadow: none;
+}
+#budget-alert {
+  margin-bottom: 12px;
+  color: #d81b60;
+  font-weight: bold;
+  text-align: center;
+}
+@media (max-width:600px) {
+  .main-container { padding: 10px 3px; }
+  form, #filter-row { flex-direction: column; }
+}
